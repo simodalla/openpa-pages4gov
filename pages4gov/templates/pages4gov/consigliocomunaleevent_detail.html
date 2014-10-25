@@ -1,0 +1,11 @@
+{% extends 'pages/page.html' %}
+{% load l10n i18n mezzanine_tags %}
+
+{% block main %}
+    {{ block.super }}
+
+    {% nevercache %}
+        {{object}}
+    {% endnevercache %}
+
+{% endblock %}>

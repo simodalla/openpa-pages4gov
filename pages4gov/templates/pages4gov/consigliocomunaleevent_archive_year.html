@@ -1,0 +1,19 @@
+{% extends 'pages/page.html' %}
+{% load l10n i18n mezzanine_tags %}
+
+{% block main %}
+    {{ block.super }}
+
+    {% nevercache %}
+    {% if object_list %}
+
+        {% for object in object_list %}
+            {{object}}
+        {% endfor %}
+
+    {% else %}
+        <h3>Siamo spiacenti, non sono presenti eventi per l'anno {{ year.year }}</h3>
+    {% endif %}
+    {% endnevercache %}
+
+{% endblock %}>
