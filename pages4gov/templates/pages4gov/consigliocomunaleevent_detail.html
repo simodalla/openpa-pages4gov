@@ -9,11 +9,24 @@
     </div>
     <!--{{object}}-->
 
-    <div class="embed-responsive embed-responsive-16by9">
+    <div class="embed-responsive embed-responsive-16by9 text-center">
     <iframe class="embed-responsive-item" type="text/html" width="640" height="390"
-        src="{{ object.youtube_video_url }}?autoplay=1&origin=https://www2.comune.zolapredosa.bo.it" allowfullscreen></iframe>
+        src="{{ object.youtube_video_embed_url }}?autoplay=1&origin=https://www2.comune.zolapredosa.bo.it" allowfullscreen></iframe>
     </div>
 
-    {{ object.content|richtext_filters|safe }}
+    <div class="btn-group btn-group-justified">
+        {% if object.news_url %}
+        <a href="{{ object.news_url }}" class="btn btn-info" role="button" title="Vai al {{ object.title }}">
+            News sito istituzionale &raquo;
+        </a>
+        {% endif %}
+        <a href="{{ object.youtube_video_url }}" class="btn btn-success" role="button" title="Vai al {{ object.title }}">
+            Youtube &raquo;
+        </a>
+    </div>
+
+    <div style="margin-top: 20px;">
+        {{ object.content|richtext_filters|safe }}
+    </div>
 
 {% endblock %}>

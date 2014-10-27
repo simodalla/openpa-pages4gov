@@ -27,11 +27,4 @@ urlpatterns = patterns(
     url(r'^events/consigliocomunale/(?P<year>\d{4})/(?P<month>\d+)/(?P<pk>\d+)/$',
         ConsiglioComunaleDetailView.as_view(),
         name='consiglicomunali_detail'),
-    # url(r'^opendata/avcp/l190/(?P<slug_ente>[-_\w]+)/datasetappalti/$',
-    #     DatasetAppaltiListView.as_view(), name='datasetappalti_list'),
-    # url(r'^opendata/avcp/l190/(?P<slug_ente>[-_\w]+)/datasetindice/$',
-    #     DatasetIndiceListView.as_view(),
-    #     name='datasetindice_list'),
-    # url(r'^opendata/avcp/l190/(?P<slug_ente>[-_\w]+)/(?P<model>\w+)_(?P<year>\d{4})_(?P<pk>\d+)\.(?P<file_format>\w+)$',
-    #     'dataset_export', name='dataset_export'),
 )

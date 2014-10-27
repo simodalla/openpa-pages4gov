@@ -18,7 +18,7 @@ istitutionalevent_fieldsets = list(deepcopy(DisplayableAdmin.fieldsets))
 istitutionalevent_fieldsets.insert(
     1, ('Multimedia', {'fields': ['performance_date',
                                   'news_url', 'youtube_video_url',
-                                  'youtube_video_url_query', 'hangout_url',
+                                  'youtube_video_embed_url', 'hangout_url',
                                   'content']}))
 istitutionalevent_list_display = ['title', 'performance_date', 'user',
                                   'status', 'admin_link']
