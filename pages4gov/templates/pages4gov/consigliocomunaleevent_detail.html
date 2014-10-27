@@ -4,8 +4,16 @@
 {% block main %}
     {{ block.super }}
 
-    {% nevercache %}
-        {{object}}
-    {% endnevercache %}
+    <div class="page-header">
+        <h1>{{ object.title }}</h1>
+    </div>
+    <!--{{object}}-->
+
+    <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" type="text/html" width="640" height="390"
+        src="{{ object.youtube_video_url }}?autoplay=1&origin=https://www2.comune.zolapredosa.bo.it" allowfullscreen></iframe>
+    </div>
+
+    {{ object.content|richtext_filters|safe }}
 
 {% endblock %}>

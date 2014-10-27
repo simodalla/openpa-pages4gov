@@ -9,6 +9,7 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from mezzanine.core.models import Displayable, Ownable, RichText, Slugged
+from mezzanine.pages.models import Link
 
 
 class IstitutionalEvent(Displayable, Ownable, RichText):
@@ -39,5 +40,23 @@ class ConsiglioComunaleEvent(IstitutionalEvent):
         verbose_name = _("Consiglio Comunale")
         verbose_name_plural = _("Consigli Comunali")
 
+    @property
+    def url_list(self):
+        return reverse('pages4gov:consiglicomunali_list')
+
+    @property
+    def url_year_archive(self):
+        return reverse('pages4gov:consiglicomunali_year_archive',
+                       kwargs={'year': self.performance_date.year})
+
+    @property
+    def url_month_archive(self):
+        return reverse('pages4gov:consiglicomunali_month_archive',
+                       kwargs={'year': self.performance_date.year,
+                               'month': self.performance_date.month})
+
     def get_absolute_url(self):
-        return '/{}/'.format(self.pk)
+        return reverse('pages4gov:consiglicomunali_detail',
+                       kwargs={'year': self.performance_date.year,
+                               'month': self.performance_date.month,
+                               'pk': self.pk})
