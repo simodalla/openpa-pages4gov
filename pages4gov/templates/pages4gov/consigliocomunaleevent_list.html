@@ -1,0 +1,31 @@
+{% extends 'pages/page.html' %}
+{% load l10n i18n mezzanine_tags %}
+
+{% block main %}
+    {{ block.super }}
+
+    <div class="page-header text-center">
+        <h1>Consigli Comunali disponibili:</h1>
+    </div>
+    {% nevercache %}
+    {% if object_list %}
+
+        {% for object in object_list %}
+            <div class="thumbnail text-center">
+                <div class="caption">
+                    <h3>{{ object.title }}</h3>
+                    <p>
+                        <a href="{{ object.get_absolute_url }}" class="btn btn-primary" role="button" id="event_{{ object.pk }}"
+                                title="Vai al {{ object.title }}">
+                            Guarda registrazione &raquo;</a>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <h3>Siamo spiacenti, non sono presenti eventi di questo tipo.</h3>
+    {% endif %}
+    {% endnevercache %}
+
+{% endblock %}>

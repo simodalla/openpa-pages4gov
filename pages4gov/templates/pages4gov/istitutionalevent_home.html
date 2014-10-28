@@ -1,0 +1,20 @@
+{% extends 'pages/page.html' %}
+{% load l10n i18n mezzanine_tags %}
+
+{% block main %}
+    {{ block.super }}
+
+    <div class="page-header text-center">
+        <h1>Eventi Istituzionali disponibili:</h1>
+    </div>
+    <div class="thumbnail text-center">
+        <div class="caption">
+            <h3>Consigli Comunali</h3>
+            <p>
+                <a href="{% url 'pages4gov:consiglicomunali_list' %}" class="btn btn-primary" role="button" title="Vai alla lista dei Consigli Comunali disponibili">
+                    Guarda i Consigli Comunali disponibili &raquo;</a>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}>

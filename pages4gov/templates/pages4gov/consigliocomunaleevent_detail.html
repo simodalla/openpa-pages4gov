@@ -4,7 +4,7 @@
 {% block main %}
     {{ block.super }}
 
-    <div class="page-header">
+    <div class="page-header text-center">
         <h1>{{ object.title }}</h1>
     </div>
     <!--{{object}}-->
@@ -14,7 +14,7 @@
         src="{{ object.youtube_video_embed_url }}?autoplay=1&origin=https://www2.comune.zolapredosa.bo.it" allowfullscreen></iframe>
     </div>
 
-    <div class="btn-group btn-group-justified">
+    <div class="btn-group btn-group-justified" style="margin-top: 15px;">
         {% if object.news_url %}
         <a href="{{ object.news_url }}" class="btn btn-info" role="button" title="Vai al {{ object.title }}">
             News sito istituzionale &raquo;
