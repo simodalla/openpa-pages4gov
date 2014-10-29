@@ -1,6 +1,8 @@
 {% extends 'pages/page.html' %}
 {% load l10n i18n mezzanine_tags %}
 
+{% block meta_title %}Consiglio Comunale {{ object.performance_date|date:"d/m/Y" }}{% endblock %}
+
 {% block main %}
     {{ block.super }}
 
@@ -10,14 +12,14 @@
     <!--{{object}}-->
 
     <div class="embed-responsive embed-responsive-16by9 text-center">
-        {% if object.youtube_video_embed_urla %}
+        {% if object.youtube_video_embed_url %}
         <iframe class="embed-responsive-item" type="text/html" width="{{ app_settings.PAGES4GOV_YOUTUBE_EMBED_WIDTH }}" height="{{ app_settings.PAGES4GOV_YOUTUBE_EMBED_HEIGHT }}"
             src="{{ object.youtube_video_embed_url }}?{{ app_settings.PAGES4GOV_YOUTUBE_URL_QUERY }}" allowfullscreen></iframe>
         {% else %}
             <div class="alert alert-warning" role="alert">
                 Il Consiglio Comunale inizierà alle ore <strong>{{ object.performance_date|date:"H:i" }}.</strong>
                 <br /><br />
-                A breve sarà online il video.
+                A breve sarà online la trasmissione in diretta streaming.
             </div>
         {% endif %}
     </div>
@@ -25,7 +27,7 @@
     <div class="btn-group btn-group-justified" style="margin-top: 15px;">
         {% if object.news_url %}
         <a href="{{ object.news_url }}" class="btn btn-info" role="button" title="Vai al {{ object.title }}">
-            News sito istituzionale &raquo;
+            Ordine del giorno &raquo;
         </a>
         {% endif %}
         {% if object.youtube_video_url %}

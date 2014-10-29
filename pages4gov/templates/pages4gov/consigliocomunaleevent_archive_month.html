@@ -1,6 +1,8 @@
 {% extends 'pages/page.html' %}
 {% load l10n i18n mezzanine_tags %}
 
+{% block meta_title %}Consigli Comunali {{ month|date:"F Y"|capfirst }}{% endblock %}
+
 {% block main %}
     {{ block.super }}
 
@@ -21,7 +23,7 @@
         {% endfor %}
 
     {% else %}
-        <h3>Siamo spiacenti, non sono presenti eventi per l'anno {{ year.year }}</h3>
+        <h3>Siamo spiacenti, non sono presenti eventi per {{ month|date:"F Y"|capfirst }}</h3>
     {% endif %}
     {% endnevercache %}
 
