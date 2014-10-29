@@ -10,8 +10,16 @@
     <!--{{object}}-->
 
     <div class="embed-responsive embed-responsive-16by9 text-center">
-    <iframe class="embed-responsive-item" type="text/html" width="640" height="390"
-        src="{{ object.youtube_video_embed_url }}?autoplay=1&origin=https://www2.comune.zolapredosa.bo.it" allowfullscreen></iframe>
+        {% if object.youtube_video_embed_urla %}
+        <iframe class="embed-responsive-item" type="text/html" width="{{ app_settings.PAGES4GOV_YOUTUBE_EMBED_WIDTH }}" height="{{ app_settings.PAGES4GOV_YOUTUBE_EMBED_HEIGHT }}"
+            src="{{ object.youtube_video_embed_url }}?{{ app_settings.PAGES4GOV_YOUTUBE_URL_QUERY }}" allowfullscreen></iframe>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                Il Consiglio Comunale inizierà alle ore <strong>{{ object.performance_date|date:"H:i" }}.</strong>
+                <br /><br />
+                A breve sarà online il video.
+            </div>
+        {% endif %}
     </div>
 
     <div class="btn-group btn-group-justified" style="margin-top: 15px;">
@@ -20,9 +28,11 @@
             News sito istituzionale &raquo;
         </a>
         {% endif %}
+        {% if object.youtube_video_url %}
         <a href="{{ object.youtube_video_url }}" class="btn btn-success" role="button" title="Vai al {{ object.title }}">
             Youtube &raquo;
         </a>
+        {% endif %}
     </div>
 
     <div style="margin-top: 20px;">
